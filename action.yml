@@ -1,12 +1,12 @@
-name: "action-dump-sqlite"
+name: "Dump SQLite"
 
 author: "ryohidaka"
 
 description: "GitHub Actions to generate SQLite database dump files."
 
 branding:
-  color: green
-  icon: send
+  color: blue
+  icon: database
 
 inputs:
   version:
