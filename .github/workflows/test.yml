@@ -13,4 +13,29 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - uses: "./"
+      - name: Setup SQLite environment
+        uses: ryohidaka/action-setup-sqlite@v1.2.0
+
+      - name: Create sample.db and add tables
+        run: |
+          sqlite3 sample.db <<EOF
+            CREATE TABLE users (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              name TEXT NOT NULL,
+              email TEXT NOT NULL
+            );
+            CREATE TABLE orders (
+              id INTEGER PRIMARY KEY AUTOINCREMENT,
+              user_id INTEGER,
+              product TEXT NOT NULL,
+              amount INTEGER NOT NULL,
+              FOREIGN KEY (user_id) REFERENCES users (id)
+            );
+            INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com');
+            INSERT INTO users (name, email) VALUES ('Jane Smith', 'jane@example.com');
+            INSERT INTO orders (user_id, product, amount) VALUES (1, 'Product A', 3);
+            INSERT INTO orders (user_id, product, amount) VALUES (2, 'Product B', 2);
+          EOF
+
+      - name: Run Dump SQLite
+        uses: "./"
