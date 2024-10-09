@@ -37,7 +37,17 @@ jobs:
             INSERT INTO orders (user_id, product, amount) VALUES (2, 'Product B', 2);
           EOF
 
-      - name: Run Dump SQLite
+      - name: Run Dump SQLite for users
+        uses: "./"
+        with:
+          db: "sample.db"
+          output: "users.sql"
+          tables: "users"
+
+      - name: Check Dump file for users
+        run: cat users.sql
+
+      - name: Run Dump SQLite for all tables
         uses: "./"
         with:
           db: "sample.db"

@@ -22,6 +22,11 @@ inputs:
     description: "The output file name for the SQL dump."
     required: true
 
+  tables:
+    description: "Comma-separated list of table names to dump (optional). If not specified, all tables will be dumped."
+    required: false
+    default: ""
+
 runs:
   using: "composite"
   steps:
@@ -38,5 +43,6 @@ runs:
       run: |
         $GITHUB_ACTION_PATH/scripts/dump.sh \
           ${{ inputs.db }} \
-          ${{ inputs.output }}
+          ${{ inputs.output }} \
+          "${{ inputs.tables }}"
       shell: bash

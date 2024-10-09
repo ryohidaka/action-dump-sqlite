@@ -22,6 +22,7 @@ jobs:
           version: "3.43.2"
           db: "sample.db"
           output: "sample.sql"
+          tables: "samples1, samples2"
 ```
 
 ## Inputs
@@ -31,3 +32,4 @@ jobs:
 | `version` | SQLite version to install.                   |          | `"latest"` |
 | `db`      | The name of the SQLite database file to use. | ✅       |            |
 | `output`  | The output file name for the SQL dump.       | ✅       |            |
+| `tables`  | Comma-separated list of table names to dump. |          | `""`       |
