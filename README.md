@@ -19,10 +19,11 @@ jobs:
     steps:
       - uses: ryohidaka/action-dump-sqlite@v1
         with:
+          version: "3.43.2"
 ```
 
 ## Inputs
 
-| Input | Description | Required | Default |
-| ----- | ----------- | -------- | ------- |
-|       |             |          |         |
+| Input     | Description               | Required | Default    |
+| --------- | ------------------------- | -------- | ---------- |
+| `version` | SQLite version to install |          | `"latest"` |

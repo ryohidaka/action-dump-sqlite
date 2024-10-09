@@ -9,6 +9,10 @@ branding:
   icon: send
 
 inputs:
+  version:
+    description: "SQLite version to install (optional)"
+    required: false
+    default: "latest"
 
 runs:
   using: "composite"
@@ -16,3 +20,8 @@ runs:
     - name: Set GitHub Path
       run: echo "GITHUB_ACTION_PATH=${GITHUB_ACTION_PATH}" >> $GITHUB_ENV
       shell: bash
+
+    - name: Setup SQLite environment
+      uses: ryohidaka/action-setup-sqlite@v1.2.0
+      with:
+        version: ${{ inputs.version }}
