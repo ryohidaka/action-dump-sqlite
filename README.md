@@ -2,6 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/v/release/ryohidaka/action-dump-sqlite)](https://github.com/ryohidaka/action-dump-sqlite/releases/)
 [![Test Action](https://github.com/ryohidaka/action-dump-sqlite/actions/workflows/test.yml/badge.svg)](https://github.com/ryohidaka/action-dump-sqlite/actions/workflows/test.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 GitHub Actions to generate SQLite database dump files.
 
