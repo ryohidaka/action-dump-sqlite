@@ -42,3 +42,6 @@ jobs:
         with:
           db: "sample.db"
           output: "sample.sql"
+
+      - name: Check Dump file
+        run: cat sample.sql
