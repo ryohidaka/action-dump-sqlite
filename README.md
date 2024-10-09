@@ -18,7 +18,7 @@ jobs:
   dump-sql:
     runs-on: ubuntu-latest
     steps:
-      - uses: ryohidaka/action-dump-sqlite@v1
+      - uses: ryohidaka/action-dump-sqlite@v0.1.0
         with:
           version: "3.43.2"
           db: "sample.db"
