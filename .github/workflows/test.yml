@@ -39,3 +39,6 @@ jobs:
 
       - name: Run Dump SQLite
         uses: "./"
+        with:
+          db: "sample.db"
+          output: "sample.sql"

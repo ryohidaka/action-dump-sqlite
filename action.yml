@@ -14,6 +14,14 @@ inputs:
     required: false
     default: "latest"
 
+  db:
+    description: "The name of the SQLite database file to use."
+    required: true
+
+  output:
+    description: "The output file name for the SQL dump."
+    required: true
+
 runs:
   using: "composite"
   steps:
@@ -25,3 +33,10 @@ runs:
       uses: ryohidaka/action-setup-sqlite@v1.2.0
       with:
         version: ${{ inputs.version }}
+
+    - name: Dump tables to SQL
+      run: |
+        $GITHUB_ACTION_PATH/scripts/dump.sh \
+          ${{ inputs.db }} \
+          ${{ inputs.output }}
+      shell: bash

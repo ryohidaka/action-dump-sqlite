@@ -20,10 +20,14 @@ jobs:
       - uses: ryohidaka/action-dump-sqlite@v1
         with:
           version: "3.43.2"
+          db: "sample.db"
+          output: "sample.sql"
 ```
 
 ## Inputs
 
-| Input     | Description               | Required | Default    |
-| --------- | ------------------------- | -------- | ---------- |
-| `version` | SQLite version to install |          | `"latest"` |
+| Input     | Description                                  | Required | Default    |
+| --------- | -------------------------------------------- | -------- | ---------- |
+| `version` | SQLite version to install.                   |          | `"latest"` |
+| `db`      | The name of the SQLite database file to use. | ✅       |            |
+| `output`  | The output file name for the SQL dump.       | ✅       |            |
